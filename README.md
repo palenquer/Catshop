@@ -1,4 +1,4 @@
-<h1>Petshop</h1>
+<h1>Catshop</h1>
 
 Projeto com o intúito de melhorar minhas habilidades em React e ReactRouter.
 
