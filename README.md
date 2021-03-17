@@ -1,3 +1,7 @@
+<h1>Catshop</h1>
+
+Projeto com o intúito de melhorar minhas habilidades em React e ReactRouter.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
