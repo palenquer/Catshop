@@ -9,7 +9,7 @@ export default function Post({ url, key }) {
   }, [url]);
   return (
     <article
-      className="bg-white flex-grow w-full md:w-80 h-60 flex justify-center items-center m-4 p-4 rounded border-t-8 border-purple-400 overflow-y-auto"
+      className="bg-white p-4 rounded border-t-8 border-purple-400 overflow-y-auto shadow-md"
       key={key}
     >
       <p>{posts.text}</p>

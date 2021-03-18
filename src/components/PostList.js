@@ -1,11 +1,11 @@
 import React from "react";
 
 
-export default function PostList({ url, children }) {
+export default function PostList({ children }) {
 
 
   return (
-    <section className="w-full h-full flex flex-col md:flex-row md:flex-wrap md:justify-evenly mt-8">
+    <section className="w-full h-full grid grid-flow-col md:grid-flow-row md:grid-cols-2 grid-rows-4 md:grid-rows-3 gap-4 mt-8 mb-8">
       {children}
     </section>
   );
