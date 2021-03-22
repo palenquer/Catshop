@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Page404 from "./pages/Page404";
+import Post from "./pages/Post";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/posts/:id">
+            <Post />
           </Route>
           <Route>
             <Page404 />

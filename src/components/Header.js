@@ -17,13 +17,13 @@ export default function Header() {
               Enter
             </Link>
           </li>
-          <li className="hover:border-purple-500 border-b-4 mr-4 w-20 flex justify-center">
+          <li className="hover:border-purple-400 border-b-4 border-transparent mr-4 w-20 flex justify-center">
             <Link to="/">Products</Link>
           </li>
-          <li className="hover:border-purple-500 border-b-4 mr-4 w-20 flex justify-center">
+          <li className="hover:border-purple-400 border-b-4 border-transparent mr-4 w-20 flex justify-center">
             <Link to="/">Blog</Link>
           </li>
-          <li className="hover:border-purple-500 border-b-4 w-20 flex justify-center">
+          <li className="hover:border-purple-400 border-b-4 border-transparent w-20 flex justify-center">
             <Link to="/about">About</Link>
           </li>
         </ul>
