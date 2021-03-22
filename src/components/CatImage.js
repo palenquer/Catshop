@@ -9,7 +9,7 @@ export default function CatImage({url}) {
   }, [url]);
 
   return (
-    <figure className="h-96 w-1/2">
+    <figure className="h-96 w-full">
       <img className="h-full w-full" src={catImage[0].url} alt="Cat" />
     </figure>
   );
