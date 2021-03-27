@@ -8,7 +8,7 @@ import Post from "./pages/Post";
 
 function App() {
   return (
-    <div className="md:h-screen w-screen flex justify-center items-center flex-col bg-blue-100 text-gray-800">
+    <div className="md:h-screen w-screen flex justify-center items-center flex-col bg-blue-100 text-gray-800 font-mont">
       <Router>
         <Header />
         <Switch>
