@@ -8,15 +8,15 @@ import instagram from "../assets/img/icons/029-instagram.svg";
 import gmail from "../assets/img/icons/gmail.svg";
 import location from "../assets/img/icons/location.svg";
 import ContactSvg from "../components/ContactSvg";
+import PageTitle from "../components/PageTitle";
+import Container from "../components/Container";
 
 export default function About() {
   return (
     <>
-      <main className="w-full h-full flex flex-col items-center container mx-auto px-8">
-        <section className="bg-white w-full h-20 flex justify-center items-center mt-8 rounded-lg">
-          <h1 className="font-lobster text-3xl">About</h1>
-        </section>
-        <article className="mt-8 bg-white p-8 rounded-lg mb-8">
+      <Container>
+        <PageTitle text="About"/>
+        <article className="bg-white p-8 rounded-lg mb-8 shadow-md">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac
           sapien eget dolor tincidunt imperdiet posuere eu odio. Nunc vitae
           nulla nec nunc luctus interdum. Suspendisse congue sem sit amet nunc
@@ -31,8 +31,8 @@ export default function About() {
           Donec non egestas diam, quis consectetur orci. Nam consectetur diam
           sit amet enim sollicitudin venenatis.
         </article>
-      </main>
-      <footer className="w-full h-60 md:h-20 bg-white flex">
+      </Container>
+      <footer className="w-full h-60 md:h-20 bg-white flex shadow-md">
         <div className="flex-grow h-full flex flex-col md:flex-row justify-evenly p-2 border-r-2 border-blue-100 text-sm">
           <figure className="flex items-center">
             <img className="w-6 h-6 mr-2" src={whatsapp} alt="whatsapp" />

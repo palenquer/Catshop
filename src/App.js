@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Page404 from "./pages/Page404";
 import Post from "./pages/Post";
+import Products from "./pages/Products";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/posts/:id">
             <Post />
+          </Route>
+          <Route path="/products">
+            <Products />
           </Route>
           <Route>
             <Page404 />

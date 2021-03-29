@@ -27,14 +27,14 @@ export default function Header() {
         <ul className="hidden md:flex font-semibold">
           <li className="mr-4">
             <Link
-              className="bg-purple-500 py-3 px-6 rounded-full text-white"
+              className="bg-purple-400 py-3 px-6 rounded-full text-white hover:bg-purple-500"
               to="/"
             >
               Enter
             </Link>
           </li>
           <li className="hover:border-purple-400 border-b-4 border-transparent mr-4 w-20 flex justify-center">
-            <Link to="/">Products</Link>
+            <Link to="/products">Products</Link>
           </li>
           <li className="hover:border-purple-400 border-b-4 border-transparent mr-4 w-20 flex justify-center">
             <Link to="/">Blog</Link>
@@ -78,7 +78,7 @@ export default function Header() {
                   onClick={() => {
                     setOpen(!open);
                   }}
-                  to="/"
+                  to="/products"
                 >
                   Products
                 </Link>
@@ -88,7 +88,7 @@ export default function Header() {
                   onClick={() => {
                     setOpen(!open);
                   }}
-                  to="/"
+                  to="/blog"
                 >
                   Blog
                 </Link>
