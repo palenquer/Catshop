@@ -20,7 +20,7 @@ export default function Products() {
         <Product
           src={litterbox}
           price={(20.9).toFixed(2)}
-          off="5"
+          off="10"
           text="Cat Sandbox"
         />
         <Product
