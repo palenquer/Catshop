@@ -7,5 +7,6 @@
 <h1>Dia - 30/03/2021</h1>
 
  Obtive sucesso em realizar a primeira etapa na minha página de Login, ainda falta alguns ajustes e a parte do backend, mas já foi um avanço.
+ 
  Utilizei a library React-hook-form para fazer meus formulários e darei um foco maior para o backend no próximos dias.
 
