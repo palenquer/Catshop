@@ -28,7 +28,7 @@ export default function Header() {
           <li className="mr-4">
             <Link
               className="bg-purple-400 py-3 px-6 rounded-full text-white hover:bg-purple-500"
-              to="/"
+              to="/login"
             >
               Enter
             </Link>
@@ -68,7 +68,7 @@ export default function Header() {
                   onClick={() => {
                     setOpen(!open);
                   }}
-                  to="/"
+                  to="/login"
                 >
                   Enter
                 </Link>
