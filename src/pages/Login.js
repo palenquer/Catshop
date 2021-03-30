@@ -11,7 +11,7 @@ export default function Login() {
     <main className="h-screen container mx-auto px-8 flex flex-col items-center">
       <PageTitle text="Login" />
       <form
-        className="bg-white flex justify-center items-center flex-col rounded-lg shadow-md p-12 max-w-lg"
+        className="bg-white flex justify-center items-center flex-col rounded-lg shadow-md p-12"
         onSubmit={handleSubmit(onSubmit)}
       >
         <p className="flex flex-col justify-center items-center mb-4">
@@ -21,14 +21,19 @@ export default function Login() {
           <input
             className="border-2 border-gray-300 rounded p-1"
             name="username"
-            ref={register({ required: true, maxLength: 20 })}
+            ref={register({ required: true, minLength: 6, maxLength: 20 })}
           />
           {errors.username?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
           )}
           {errors.username?.type === "maxLength" && (
             <span className="text-red-400 text-sm">
-              Your input exceed maxLength (20)
+              this field cannot exceed 20 characters
+            </span>
+          )}
+          {errors.username?.type === "minLength" && (
+            <span className="text-red-400 text-sm">
+              This field must have at least 6 characters long
             </span>
           )}
         </p>
@@ -40,14 +45,19 @@ export default function Login() {
             className="border-2 border-gray-300 rounded p-1"
             name="password"
             type="password"
-            ref={register({ required: true, maxLength: 20 })}
+            ref={register({ required: true, minLength: 6, maxLength: 20 })}
           />
           {errors.password?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
           )}
           {errors.password?.type === "maxLength" && (
             <span className="text-red-400 text-sm">
-              This field exceed maxLength (20)
+              this field cannot exceed 20 characters
+            </span>
+          )}
+           {errors.password?.type === "minLength" && (
+            <span className="text-red-400 text-sm">
+              This field must have at least 6 characters long
             </span>
           )}
         </p>
