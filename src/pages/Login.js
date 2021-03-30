@@ -6,13 +6,14 @@ export default function Login() {
   const { register, handleSubmit, errors } = useForm();
   const [value, setValue] = useState({});
   const onSubmit = (data) => setValue(data);
+  const onError = (errors, e) => console.log(errors, e);
 
   return (
     <main className="h-screen container mx-auto px-8 flex flex-col items-center">
       <PageTitle text="Login" />
       <form
         className="bg-white flex justify-center items-center flex-col rounded-lg shadow-md p-12"
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onError)}
       >
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="username">
@@ -55,7 +56,7 @@ export default function Login() {
               this field cannot exceed 20 characters
             </span>
           )}
-           {errors.password?.type === "minLength" && (
+          {errors.password?.type === "minLength" && (
             <span className="text-red-400 text-sm">
               This field must have at least 6 characters long
             </span>
