@@ -22,7 +22,7 @@ export default function Login() {
           <input
             className="border-2 border-gray-300 rounded p-1"
             name="username"
-            ref={register({ required: true, minLength: 6, maxLength: 20 })}
+            ref={register({ required: true, minLength: 6, maxLength: 20, pattern: /^[a-zA-Z0-9]+$/ })}
           />
           {errors.username?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
@@ -37,6 +37,11 @@ export default function Login() {
               This field must have at least 6 characters long
             </span>
           )}
+          {errors.username?.type === "pattern" && (
+            <span className="text-red-400 text-sm">
+              Character not valid
+            </span>
+          )}
         </p>
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="password">
@@ -46,7 +51,7 @@ export default function Login() {
             className="border-2 border-gray-300 rounded p-1"
             name="password"
             type="password"
-            ref={register({ required: true, minLength: 6, maxLength: 20 })}
+            ref={register({ required: true, minLength: 6, maxLength: 20, pattern: /^[a-zA-Z0-9]+$/ })}
           />
           {errors.password?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
@@ -59,6 +64,11 @@ export default function Login() {
           {errors.password?.type === "minLength" && (
             <span className="text-red-400 text-sm">
               This field must have at least 6 characters long
+            </span>
+          )}
+          {errors.password?.type === "pattern" && (
+            <span className="text-red-400 text-sm">
+              Character not valid
             </span>
           )}
         </p>
