@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Page404 from "./pages/Page404";
 import Post from "./pages/Post";
 import Products from "./pages/Products";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route>
             <Page404 />
