@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import Form from "../components/Form";
+import { auth } from "../firebase";
 
 export default function SignUp() {
+  const [value, setValue] = useState({});
   const {
     handleSubmit,
     formState: { errors },
     register,
     getValues,
   } = useForm();
+
   const onError = (errors, e) => console.log(errors, e);
+
   const onSubmit = (data) => {
-    console.log(data);
+    setValue(data);
+    signup(data.email, data.password);
   };
+
+  async function signup(email, password) {
+    return await auth.createUserWithEmailAndPassword(email, password);
+  }
 
   return (
     <main className="h-screen container mx-auto px-8 flex flex-col items-center">
@@ -21,33 +30,30 @@ export default function SignUp() {
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="username">
-            Username
+            Email
           </label>
           <input
+            type="email"
             className="border-2 border-gray-300 rounded p-1"
-            name="username"
+            name="email"
             ref={register({
               required: true,
               minLength: 6,
-              maxLength: 20,
-              pattern: /^[a-zA-Z0-9]+$/,
+              maxLength: 40,
             })}
           />
-          {errors.username?.type === "required" && (
+          {errors.email?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
           )}
-          {errors.username?.type === "maxLength" && (
+          {errors.email?.type === "maxLength" && (
             <span className="text-red-400 text-sm">
-              this field cannot exceed 20 characters
+              this field cannot exceed 40 characters
             </span>
           )}
-          {errors.username?.type === "minLength" && (
+          {errors.email?.type === "minLength" && (
             <span className="text-red-400 text-sm">
               This field must have at least 6 characters long
             </span>
-          )}
-          {errors.username?.type === "pattern" && (
-            <span className="text-red-400 text-sm">Character not valid</span>
           )}
         </p>
         <p className="flex flex-col justify-center items-center mb-4">
@@ -61,7 +67,7 @@ export default function SignUp() {
             ref={register({
               required: true,
               minLength: 6,
-              maxLength: 20,
+              maxLength: 40,
               pattern: /^[a-zA-Z0-9]+$/,
             })}
           />
@@ -70,7 +76,7 @@ export default function SignUp() {
           )}
           {errors.password?.type === "maxLength" && (
             <span className="text-red-400 text-sm">
-              this field cannot exceed 20 characters
+              this field cannot exceed 40 characters
             </span>
           )}
           {errors.password?.type === "minLength" && (
@@ -93,7 +99,7 @@ export default function SignUp() {
             ref={register({
               required: true,
               minLength: 6,
-              maxLength: 20,
+              maxLength: 40,
               pattern: /^[a-zA-Z0-9]+$/,
               validate: {
                 matchesPreviousPassword: (value) => {

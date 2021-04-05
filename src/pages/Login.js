@@ -18,32 +18,32 @@ export default function Login() {
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="username">
-            Username
+            Email
           </label>
           <input
+            type="email"
             className="border-2 border-gray-300 rounded p-1"
-            name="username"
+            name="email"
             ref={register({
               required: true,
               minLength: 6,
               maxLength: 20,
-              pattern: /^[a-zA-Z0-9]+$/,
             })}
           />
-          {errors.username?.type === "required" && (
+          {errors.email?.type === "required" && (
             <span className="text-red-400 text-sm">This field is required</span>
           )}
-          {errors.username?.type === "maxLength" && (
+          {errors.email?.type === "maxLength" && (
             <span className="text-red-400 text-sm">
               this field cannot exceed 20 characters
             </span>
           )}
-          {errors.username?.type === "minLength" && (
+          {errors.email?.type === "minLength" && (
             <span className="text-red-400 text-sm">
               This field must have at least 6 characters long
             </span>
           )}
-          {errors.username?.type === "pattern" && (
+          {errors.email?.type === "pattern" && (
             <span className="text-red-400 text-sm">Character not valid</span>
           )}
         </p>
