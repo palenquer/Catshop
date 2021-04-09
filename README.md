@@ -1,6 +1,14 @@
 <h1>Catshop</h1>
 
-Projeto com o intúito de melhorar minhas habilidades em React e ReactRouter.
+Projeto com o intúito de melhorar minhas habilidades em React.
+
+<h2>Rodando o Projeto</h2>
+
+Para rodar este projeto, faça um gitclone do projeto e logo em seguida aplique o node para baixar as dependências. Após isto, digite yarn start no terminal.
+
+<h2>Dependências utilizadas</h2>
+
+Axios, Firebase, React, Tailwind
 
 # Getting Started with Create React App
 
