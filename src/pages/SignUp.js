@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import Form from "../components/Form";
-import { auth } from "../firebase";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function SignUp() {
-  const [value, setValue] = useState({});
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [validate, setValidate] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const {
     handleSubmit,
     formState: { errors },
@@ -15,19 +19,29 @@ export default function SignUp() {
 
   const onError = (errors, e) => console.log(errors, e);
 
-  const onSubmit = (data) => {
-    setValue(data);
-    signup(data.email, data.password);
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+      setError("");
+      setValidate(true);
+      await signup(data.email, data.password);
+    } catch {
+      setError("failed to create an account");
+      setValidate(false);
+      console.log(error);
+    }
+    setLoading(false);
   };
-
-  async function signup(email, password) {
-    return await auth.createUserWithEmailAndPassword(email, password);
-  }
 
   return (
     <main className="h-screen container mx-auto px-8 flex flex-col items-center">
       <PageTitle text="Sign up" />
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
+        {validate ? (
+          <span className="text-green-400">You created an account</span>
+        ) : (
+          <span className="text-red-400">{error}</span>
+        )}
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="username">
             Email
@@ -129,12 +143,15 @@ export default function SignUp() {
             <span className="text-red-400 text-sm">Passwords should match</span>
           )}
         </p>
-
         <button
-          className="w-full bg-purple-400 p-2 rounded text-white font-bold text-lg hover:bg-purple-500 mt-4 focus:outline-none"
+          className={`${
+            loading === true
+              ? "w-full bg-purple-400 p-2 rounded text-white font-bold text-lg mt-4 focus:outline-none animate-pulse"
+              : "w-full bg-purple-400 p-2 rounded text-white font-bold text-lg hover:bg-purple-500 mt-4 focus:outline-none"
+          }`}
           type="submit"
         >
-          Submit
+          {loading === true ? "Loading" : "Submit"}
         </button>
       </Form>
     </main>
