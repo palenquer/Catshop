@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { search } from "../api/CatFactsApi";
+import React from "react";
 
-export default function PostList({ url, onClick }) {
-  const [posts, setPosts] = useState("");
-
-  useEffect(() => {
-    search(url, setPosts);
-  }, [url]);
-
+export default function PostList({ children }) {
   return (
-      <Link to={`/posts/${posts._id}`}>
-        <article
-          className="bg-white p-4 rounded border-t-8 border-purple-400 overflow-y-auto shadow-md cursor-pointer h-full hover:bg-gray-100"
-          onClick={onClick}
-        >
-          <p>{posts.text}</p>
-        </article>
-      </Link>
+    <section className=" w-full h-full flex flex-col md:grid grid-flow-col md:grid-flow-row md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 grid-rows-4 md:grid-rows-3 gap-4 mb-8">
+      {children}
+    </section>
   );
 }
