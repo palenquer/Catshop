@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import Form from "../components/Form";
@@ -9,6 +10,7 @@ export default function SignUp() {
   const [error, setError] = useState("");
   const [validate, setValidate] = useState(false);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const {
     handleSubmit,
@@ -25,6 +27,7 @@ export default function SignUp() {
       setError("");
       setValidate(true);
       await signup(data.email, data.password);
+      history.push("/login");
     } catch {
       setError("failed to create an account");
       setValidate(false);

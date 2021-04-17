@@ -10,7 +10,7 @@ export default function Products() {
   return (
     <Container>
       <PageTitle text="Products" />
-      <section className="w-full h-full grid grid-flow-col grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-4 mb-8">
+      <section className="w-full flex flex-col h-full md:grid grid-flow-col grid-cols-2 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-4 mb-8">
         <Product
           src={cathouse}
           price={(109.9).toFixed(2)}

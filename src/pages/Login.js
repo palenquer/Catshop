@@ -1,21 +1,31 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 import { useForm } from "react-hook-form";
 import Form from "../components/Form";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Login() {
+  const { login } = useAuth();
   const { handleSubmit, errors, register } = useForm();
-  const [value, setValue] = useState({});
+  const [error, setError] = useState("");
   const onError = (errors, e) => console.log(errors, e);
-  const onSubmit = (data) => {
-    setValue(data);
+  const history = useHistory();
+
+  const onSubmit = async (data) => {
+    try {
+      await login(data.email, data.password);
+      history.push('/');
+    } catch {
+      setError("failed to log in");
+    }
   };
 
   return (
     <main className="h-screen container mx-auto px-8 flex flex-col items-center">
       <PageTitle text="Login" />
       <Form onSubmit={handleSubmit(onSubmit, onError)}>
+        <p className="text-red-400 mb-2">{error}</p>
         <p className="flex flex-col justify-center items-center mb-4">
           <label className="text-lg font-bold mb-2" htmlFor="username">
             Email
@@ -87,7 +97,9 @@ export default function Login() {
           Enter
         </button>
       </Form>
-      <Link className="text-purple-500 font-bold mt-4" to="/signup">Sign up here!</Link>
+      <Link className="text-purple-500 font-bold mt-4" to="/signup">
+        Sign up here!
+      </Link>
     </main>
   );
 }
